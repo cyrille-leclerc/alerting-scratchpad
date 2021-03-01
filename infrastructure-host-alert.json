@@ -165,7 +165,7 @@
    "signal":{
       "status":"open",
       "status_help":"what does it means? probably 'firing', 'not firing'...",
-      "value":32,
+      "value":2.5,
       "value_help":"value of the violation of the rule",
       "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg..."
    }
