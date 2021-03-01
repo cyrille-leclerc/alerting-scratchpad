@@ -1,5 +1,6 @@
 {
   "__reference_metric_document": "https://gist.github.com/cyrille-leclerc/236263fb1a7d5f394865df3684b57f73",
+  "__comments__": "",
    "cloud": {
       "availability_zone": "us-central1-a",
       "instance": {
@@ -59,11 +60,11 @@
       "definition":{
          "inventory.type":"Host",
          "inventory.type_help":"hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues",
-         "resource-metric": "system.load",
-         "resource-metric_help":"load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric",
-         "comparison": ">",
-         "comparator_help": ">, >=, <, <="
-         "comparison-value":2,
+         "metrics": ["system.load],
+         "metric_help":"load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric",
+         "threshold-comparison": [">"],
+         "threshold-comparison_help": ">, >=, <, <="
+         "threshold":[2],
          "conditions": [],
          "alertIfNoData": true,
          "filter": "'fields.env': 'production' and 'fields.hostType': 'kubernetesNode'"
@@ -72,8 +73,10 @@
    "signal":{
       "status":"open",
       "status_help":"what does it means? probably 'firing', 'not firing'...",
-      "value":2.5,
+      "value":[3.5],
       "value_help":"value of the violation of the rule",
-      "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg..."
+      "reason": "Load is greater than a threshold of 2 (current value is 3.5)",
+      "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg...",
+      "alertInstanceId": "gke-eden-3-prod-pool-2-395ef018-06xg"
    }
 }
