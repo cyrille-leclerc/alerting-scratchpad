@@ -1,0 +1,53 @@
+"container": {
+    "id": "23c19f241b4e622d4825d287713d9a8377d70e38472f8d5cfecaba2ab100d140"
+  },
+  "kubernetes": {
+    "node": {
+      "name": "gke-eden-3-staging-ssd-3-bc7684a4-wr4t"
+    },
+    "pod": {
+      "uid": "634a5a56-ad94-4d5d-b860-9128a15d90f8",
+      "name": "advertservice-597d446cbf-vxqfw"
+    },
+    "namespace": "observe-green"
+  },
+  "@timestamp": "2021-02-03T08:26:16.011Z",
+  "ecs": {
+    "version": "1.6.0"
+  },
+  "duration_sla": 100000,
+  "service": {
+    "node": {
+      "name": "advertservice-pod"
+    },
+    "environment": "prod",
+    "framework": {
+      "name": "API"
+    },
+    "name": "advertService",
+    "runtime": {
+      "name": "Java",
+      "version": "1.8.0_272"
+    },
+    "language": {
+      "name": "Java",
+      "version": "1.8.0_272"
+    },
+    "version": "1.7.2"
+  },
+  "host": {
+    "hostname": "gke-eden-3-staging-ssd-3-bc7684a4-wr4t",
+    "os": {
+      "platform": "Linux"
+    },
+    "ip": "104.197.179.196",
+    "name": "gke-eden-3-staging-ssd-3-bc7684a4-wr4t",
+    "architecture": "amd64"
+  },
+  "transaction": {
+    "name": "/hipstershop.AdService/getAds",
+    "type": "request"
+  },
+  "rule": {
+  }
+}
