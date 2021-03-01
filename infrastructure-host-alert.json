@@ -60,7 +60,7 @@
       "definition":{
          "inventory.type":"Host",
          "inventory.type_help":"hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues",
-         "metrics": ["system.load],
+         "metrics": ["system.load"],
          "metric_help":"load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric",
          "threshold-comparison": [">"],
          "threshold-comparison_help": ">, >=, <, <="
