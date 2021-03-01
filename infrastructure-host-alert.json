@@ -61,7 +61,7 @@
          "inventory.type":"Host",
          "inventory.type_help":"hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues",
          "metrics": ["system.load"],
-         "metric_help":"load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric",
+         "metric_help":"multi valued. In [load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric]. TODO cover 'custom metrics'",
          "threshold-comparison": [">"],
          "threshold-comparison_help": ">, >=, <, <=",
          "threshold":[2],
