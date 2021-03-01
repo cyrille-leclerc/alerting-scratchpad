@@ -63,7 +63,7 @@
          "metrics": ["system.load"],
          "metric_help":"load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric",
          "threshold-comparison": [">"],
-         "threshold-comparison_help": ">, >=, <, <="
+         "threshold-comparison_help": ">, >=, <, <=",
          "threshold":[2],
          "conditions": [],
          "alertIfNoData": true,
