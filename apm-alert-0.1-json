@@ -1,0 +1,40 @@
+{
+   "@timestamp":"2021-02-03T08:26:16.011Z",
+   "service":{
+      "environment":"production",
+      "name":"advertService",
+   },
+   "transaction":{
+      "type":"request"
+   },
+   "rule":{
+      "author":"cyrille.leclerc@elastic.co",
+      "category":"apm-transaction-error-rate-threshold",
+      "category_help":"A categorization value keyword used by the entity using the rule for detection of this event.",
+      "description_help":"The description of the rule generating the event.",
+      "id":"1a137c91-6c45-11eb-a67b-55ab1a571eb4",
+      "name":"APM Transaction Threshold",
+      "ruleset_help":"Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. Example: Standard_Protocol_Filters",
+      "tags":[
+         "apm"
+      ],
+      "definition":{
+         "service.name":"*",
+         "service.name_help":"'*' (aka 'all') or service.name",
+         "transaction.type":"*",
+         "transaction.type_help":"'*' (aka 'all') or 'request', 'backgroundjob'...",
+         "service.environment":"production",
+         "service.environment_help":"'*' (aka 'all') or service.environment",
+         "isAbovePercent":30,
+         "isAbovePercent_help":"should 'above' / 'below' be configurable?",
+         "observationIntervalMillis":60000
+      }
+   },
+   "signal":{
+      "status":"open",
+      "status_help":"what does it means? probably 'firing', 'not firing'...",
+      "value":32,
+      "value_help":"value of the violation of the rule",
+      "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg..."
+   }
+}
