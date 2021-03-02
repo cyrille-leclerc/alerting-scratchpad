@@ -1,0 +1,36 @@
+
+{
+  "_index": "alert-notifications",
+  "_type": "_doc",
+  "_id": "Z_kIzHcBDQFIwTfDCdiQ",
+  "_version": 1,
+  "_score": 0,
+  "_source": {
+    "alertType": "LogThreshold",
+    "alertId": "cbbe2c00-7555-11eb-9045-8b3e363ebb2d",
+    "alertInstanceId": "*",
+    "alertName": "frontend-log-storm",
+    "context": {
+      "conditions": " service.name equals frontend",
+      "denominatorConditions": "",
+      "group": "",
+      "isRatio": "false",
+      "matchingDocuments": "370",
+      "numeratorConditions": "",
+      "ratio": "",
+      "timestamp": "2021-02-22T23:16:51.864Z"
+    },
+    "spaceId": "default",
+    "tags": ""
+  },
+  "fields": {
+    "context.timestamp": [
+      "2021-02-22T23:16:51.864Z"
+    ]
+  },
+  "highlight": {
+    "alertType": [
+      "@kibana-highlighted-field@LogThreshold@/kibana-highlighted-field@"
+    ]
+  }
+}
