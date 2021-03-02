@@ -58,7 +58,7 @@
       ],
       "definition":{
          "inventory.type":"Host", // hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues
-         "threshold": [
+         "threshold": [ // FIXME adapt data structure to support severity 'error' and 'warning'
            "metric": "system.load" // In [load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric]. TODO cover 'custom metrics'
            "operator": ">", // >, >=, <, <=
            "value": 2
