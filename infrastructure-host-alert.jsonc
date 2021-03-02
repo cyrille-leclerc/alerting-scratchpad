@@ -1,6 +1,5 @@
 {
-  "__reference_metric_document": "https://gist.github.com/cyrille-leclerc/236263fb1a7d5f394865df3684b57f73",
-  "__comments__": "",
+  // sample transaction https://gist.github.com/cyrille-leclerc/236263fb1a7d5f394865df3684b57f73
    "cloud": {
       "availability_zone": "us-central1-a",
       "instance": {
@@ -48,33 +47,30 @@
     },
    "rule":{
       "author":"cyrille.leclerc@elastic.co",
-      "category":"infrastructure-host-threshold",
-      "category_help":"A categorization value keyword used by the entity using the rule for detection of this event.",
-      "description_help":"The description of the rule generating the event.",
+      // category could be defined with dots to get refinment and grouping of categories. Would it be helpful? not sure
+      "category":"infrastructure.threshold.host.load", // A categorization value keyword used by the entity using the rule for detection of this event.
+      "description":"Lorem ipsum dolor sit amet, consectetur", // The description of the rule generating the event.
       "id":"1a137c91-6c45-11eb-a67b-55ab1a571eb4",
-      "name":"APM Transaction Threshold",
-      "ruleset_help":"Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. Example: Standard_Protocol_Filters",
+      "name":"Inventory Host Threshold Load > 2",
+      "ruleset": "", // Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. Example: Standard_Protocol_Filters"
       "tags":[
          "kubernetesNodes"
       ],
       "definition":{
-         "inventory.type":"Host",
-         "inventory.type_help":"hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues",
-         "metrics": ["system.load"],
-         "metric_help":"multi valued. In [load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric]. TODO cover 'custom metrics'",
-         "threshold-comparison": [">"],
-         "threshold-comparison_help": ">, >=, <, <=",
-         "threshold":[2],
+         "inventory.type":"Host", // hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues
+         "threshold": [
+           "metric": "system.load" // In [load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric]. TODO cover 'custom metrics'
+           "operator": ">", // >, >=, <, <=
+           "value": 2
+           ],
          "conditions": [],
          "alertIfNoData": true,
          "filter": "'fields.env': 'production' and 'fields.hostType': 'kubernetesNode'"
       }
    },
-   "signal":{
-      "status":"open",
-      "status_help":"what does it means? probably 'firing', 'not firing'...",
-      "value":[3.5],
-      "value_help":"value of the violation of the rule",
+   "alert":{ // FIXME proposal: "alert" instead of "signal"
+      "status":"open", // what do "status: 'open'"  means? probably 'firing', 'not firing'...",
+      "threshold.values":[3.5], // values of the violation of the rule
       "reason": "Load is greater than a threshold of 2 (current value is 3.5)",
       "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg...",
       "alertInstanceId": "gke-eden-3-prod-pool-2-395ef018-06xg"
