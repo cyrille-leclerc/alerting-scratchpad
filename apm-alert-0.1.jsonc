@@ -8,19 +8,19 @@
    "transaction":{
       "type":"request"
    },
-   "rule":{
+   "rule":{ // FIXME proposal: pull "rule" as a top level field to be consistent with the ECS style
       "author":"cyrille.leclerc@elastic.co",
       "category":"apm-transaction-duration-threshold", // A categorization value keyword used by the entity using the rule for detection of this event.
       "description":"Lorem ipsum dolor sit amet, consectetur", // The description of the rule generating the event.
       "id":"1a137c91-6c45-11eb-a67b-55ab1a571eb4",
       "name":"APM Transaction Duration Threshold",
       "ruleset": "xxx", // Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member. Example: Standard_Protocol_Filters
-      "urlTemplate":"https://kibana.example.com/app/apm/services/{{service.name}}/transactions/view?rangeFrom={{firstDetected.minus(30mins)}}&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg..."
+      "urlTemplate":"https://kibana.example.com/app/apm/services/{{service.name}}/transactions/view?rangeFrom={{firstDetected.minus(30mins)}}&rangeTo={{lastDetected.plus(30mins)}}&transactionName={{transaction.name}}&transactionType=request&latencyAggregationType={{rule.definition.threshold.operator}}&..."
 
       "tags":[
          "apm"
       ],
-      "definition":{
+      "definition":{ // FIXME isolate in a dedicates grouping field the definition of the controlled metric
          "service.name":"*", // '*' (aka 'all') or service.name
          "transaction.type":"*", // '*' (aka 'all') or 'request', 'backgroundjob'...
          "service.environment":"production", // '*' (aka 'all') or service.environment
@@ -33,7 +33,7 @@
          "observationIntervalMillis":60000
       }
    },
-   "signal":{
+   "alert":{ // FIXME proposal: "alert" instead of "signal"
       "status":"open", // what do "status: 'open'"  means? probably 'firing', 'not firing'...",
       "threshold.value":32, // value of the violation of the rule throshold
       "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg..."
