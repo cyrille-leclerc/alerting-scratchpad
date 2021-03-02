@@ -19,8 +19,7 @@
          "apm"
       ],
       "definition":{
-         "service.name":"*",
-         "service.name_help":"'*' (aka 'all') or service.name",
+         "service.name":"*", // '*' (aka 'all') or service.name
          "transaction.type":"*",
          "transaction.type_help":"'*' (aka 'all') or 'request', 'backgroundjob'...",
          "service.environment":"production",
