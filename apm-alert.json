@@ -16,7 +16,6 @@
    "ecs":{
       "version":"1.6.0"
    },
-   "duration_sla":100000,
    "service":{
       "node":{
          "name":"advertservice-pod"
