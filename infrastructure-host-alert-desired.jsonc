@@ -83,5 +83,6 @@
       "reason": "Load is greater than a threshold of 2 (current value is 3.5)",
       "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg...",
       "alertInstanceId": "gke-eden-3-prod-pool-2-395ef018-06xg"
-   }
+   },
+  "@timestamp": "..."
 }
