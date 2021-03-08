@@ -41,7 +41,7 @@
       ],
       "architecture": "x86_64"
     },
-    "metricset": {
+    "metricset": { // will change with Elastic Agent & Data Stream. It's probably too much informatino exposed
       "period": 10000,
       "name": "load"
     },
@@ -58,18 +58,27 @@
       ],
       "definition":{
          "inventory.type":"Host", // hosts, kubernetes-pods, docker-containers, ec2-instances, s3-buckets, rds-databases, sqs-queues
-         "threshold": [ // FIXME adapt data structure to support severity 'error' and 'warning'
-           "metric": "system.load" // In [load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric]. TODO cover 'custom metrics'
-           "operator": ">", // >, >=, <, <=
-           "value": 2
-           ],
-         "conditions": [],
+         "space.id": "default",
+         "conditions": [
+           {
+             "...": "", // FIXME are there any other fields?
+             "threshold": [ // FIXME adapt data structure to support severity 'error' and 'warning'
+                 "metric": "system.load" // In [load, cpu, memory, log-rate, nework-traffic-in, network-traffic-out, custom-metric]. TODO cover 'custom metrics'
+                 "aggregation": "", // FIXME add the aggregation
+                 "operator": ">", // >, >=, <, <=
+                 "value": 2
+                 ],
+           }
+         ],
+         "observationInterval": "1 minute", // FIXME verify naming, use the internal name?
          "alertIfNoData": true,
-         "filter": "'fields.env': 'production' and 'fields.hostType': 'kubernetesNode'"
+         // see https://www.elastic.co/guide/en/beats/metricbeat/current/add-tags.html
+         "filter": "'tags': 'production'" // FIXME describe how to support something like 'hostType': 'kubernetesNode'
       }
    },
    "alert":{ // FIXME proposal: "alert" instead of "signal"
       "status":"open", // what do "status: 'open'"  means? probably 'firing', 'not firing'...",
+      // problem with thershold.value being separated from rule/definition: with duplicate data. Is it a good idea?
       "threshold.values":[3.5], // values of the violation of the rule
       "reason": "Load is greater than a threshold of 2 (current value is 3.5)",
       "url":"https://kibana.example.com/app/apm/services/advertService/transactions/view?rangeFrom=...&rangeTo=...&transactionName=...&transactionType=request&latencyAggregationType=avg...",
